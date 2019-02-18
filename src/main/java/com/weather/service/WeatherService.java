@@ -26,13 +26,11 @@ public class WeatherService {
     public Weather getWeather(String city,String country)
     {
         URI url=new UriTemplate(ApplicationConstants.WEATHER_URL).expand(city,country,ApplicationConstants.API_KEY);
-
         return invoke(url,Weather.class);
     }
 
-     public WeatherForecast getWeatherForecast(String country, String city) {
+    public WeatherForecast getWeatherForecast(String city,String country) {
         URI url = new UriTemplate(FORECAST_URL).expand(city, country, ApplicationConstants.API_KEY);
-
         return invoke(url, WeatherForecast.class);
     }
 

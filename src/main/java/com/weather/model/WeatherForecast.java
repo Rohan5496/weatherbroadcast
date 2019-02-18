@@ -26,13 +26,6 @@ public class WeatherForecast {
         return entries;
     }
 
-    @JsonProperty("entries")
-    public List<WeatherEntry> getEntry(){
-
-       return entries.parallelStream().distinct().collect(Collectors.toList());
-    }
-
-
     @JsonProperty("list")
     public void setEntries(List<WeatherEntry> entries) {
         this.entries = entries;

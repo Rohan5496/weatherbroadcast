@@ -21,16 +21,14 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    @RequestMapping("/today/{country}/{city}")
-    public Weather getTodayWeather(@PathVariable String country,
-                              @PathVariable String city) {
-        return this.weatherService.getWeather(country, city);
+    @RequestMapping("/today/{city}/{country}")
+    public Weather getTodayWeather(@PathVariable String city,@PathVariable String country) {
+        return this.weatherService.getWeather(city, country);
     }
 
-    @RequestMapping("/weekly/{country}/{city}")
-    public WeatherForecast getWeatherForecast(@PathVariable String country,
-                                              @PathVariable String city) {
-        return this.weatherService.getWeatherForecast(country, city);
+    @RequestMapping("/weekly/{city}/{country}")
+    public WeatherForecast getWeatherForecast(@PathVariable String city,@PathVariable String country) {
+        return this.weatherService.getWeatherForecast(city,country);
     }
 
 }
