@@ -2,16 +2,23 @@ package com.weather.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
+@Entity
 public class WeatherForecast {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String name;
 
-    private List<WeatherEntry> entries=new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Weather> entries=new ArrayList<>();
 
     public String getName() {
         return name;
@@ -22,12 +29,12 @@ public class WeatherForecast {
     }
 
     @JsonProperty("entries")
-    public List<WeatherEntry> getEntries() {
+    public List<Weather> getEntries() {
         return entries;
     }
 
     @JsonProperty("list")
-    public void setEntries(List<WeatherEntry> entries) {
+    public void setEntries(List<Weather> entries) {
         this.entries = entries;
     }
 
