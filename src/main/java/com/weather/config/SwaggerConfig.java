@@ -32,7 +32,7 @@ public class SwaggerConfig {
                 "rohan.bhatia82@gmail.com");
 
         return new ApiInfo(
-                "Weather Forecasting Web-App",
+                "WeatherEntity Forecasting Web-App",
                 "json response",
                 "1.0",
                 "Terms of Service: blah",
