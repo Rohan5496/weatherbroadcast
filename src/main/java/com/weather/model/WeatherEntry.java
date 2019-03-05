@@ -2,10 +2,12 @@ package com.weather.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.MappedSuperclass;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 
+@MappedSuperclass
 public class WeatherEntry {
 
     private Instant timestamp;
