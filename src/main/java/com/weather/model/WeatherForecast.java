@@ -1,45 +1,51 @@
 package com.weather.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-@Entity
+
 public class WeatherForecast {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private float message;
 
-    private String name;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Weather> entries=new ArrayList<>();
+    private String cod;
 
-    public String getName() {
-        return name;
+
+    private List<WeatherEntry> list;
+
+
+    private WeatherCity city;
+
+    public float getMessage() {
+        return message;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMessage(float message) {
+        this.message = message;
     }
 
-    @JsonProperty("entries")
-    public List<Weather> getEntries() {
-        return entries;
+    public String getCod() {
+        return cod;
     }
 
-    @JsonProperty("list")
-    public void setEntries(List<Weather> entries) {
-        this.entries = entries;
+    public void setCod(String cod) {
+        this.cod = cod;
     }
 
-    @JsonProperty("city")
-    public void setCity(Map<String,Object> city) {
-        setName(city.get("name").toString());
+    public List<WeatherEntry> getList() {
+        return list;
+    }
+
+    public void setList(List<WeatherEntry> list) {
+        this.list = list;
+    }
+
+    public WeatherCity getCity() {
+        return city;
+    }
+
+    public void setCity(WeatherCity city) {
+        this.city = city;
     }
 }
